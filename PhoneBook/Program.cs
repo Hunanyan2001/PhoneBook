@@ -18,7 +18,6 @@ namespace PhoneBook
             List<bool> number;
             List<bool> surname;
             List<bool> separator;
-            //Console.WriteLine("Plese choose the file 1,2 or 3");
             Print print = new Print();
             Message mes = print.ChooseFile;
             mes();
@@ -46,13 +45,11 @@ namespace PhoneBook
         private static List<string> ChooseSortingType(string[] lines)
         {
             
-            //Console.WriteLine("Please choose an ordering to sort: “Ascending” or “Descending");
             Print print  = new Print();
             PrintLineInformation printLine;
             Message mes = print.ChooseOrderingSort;
             mes();
             string sortingType = Console.ReadLine();
-            //Console.WriteLine("“Please choose criteria: “Name”, “Surname” or “PhoneNumberCode”.");
             mes = print.ChooseCriteria;
             mes();
             string sortingCriteria = Console.ReadLine();
@@ -60,10 +57,6 @@ namespace PhoneBook
             var resultLine = sort.StartSorting();
             printLine = print.PrintLine;
             printLine(resultLine);
-            //for (int i = 0; i < resultLine.Count; i++)
-            //{
-            //    Console.WriteLine("\t" + resultLine[i]);
-            //}
             return resultLine;
         }
 
@@ -76,7 +69,6 @@ namespace PhoneBook
             {
                 if (number[i] == false)
                 {
-                    //Console.Write($"line{i + 1}: phone number should be with 9 digits,");
                     mes = print.ErrorPhoneNumber;
                     mes(i);
                 }
@@ -84,13 +76,11 @@ namespace PhoneBook
                 {
                     if (number[i]==false)
                     {
-                        //Console.Write("the separator should be `:` or `-`.");
                         message = print.ErrorSeperatorWithoutLine;
                         message();
                     }
                     else
                     {
-                        //Console.Write($"line{i + 1}: the separator should be `:` or `-`.");
                         mes = print.ErrorSeparator;
                         mes(i);
                     }
