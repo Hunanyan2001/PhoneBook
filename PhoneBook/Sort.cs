@@ -12,7 +12,6 @@ namespace PhoneBook
     {
         public string OrderWays { get; set; }
         public string Criteria { get; set; }
-
         public string[] Lines { get; set; }
         public Sort(string OrderWays, string Criteria, string[] Lines)
         {

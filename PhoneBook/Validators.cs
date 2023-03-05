@@ -12,7 +12,6 @@ namespace PhoneBook
     {
         public delegate void Message();
         public string filePath { get; set; }
-
         public string ChooseValidators(int selectValidator)
         {
             Print print = new Print();

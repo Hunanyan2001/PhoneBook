@@ -13,7 +13,6 @@ namespace PhoneBook
         public delegate void Message();
         public delegate void Error(int line);
         public delegate void PrintLineInformation(List<string> line);
-
         static void Main(string[] args)
         {
             List<bool> number;
@@ -29,23 +28,21 @@ namespace PhoneBook
             if (path != null)
             {
                 string[] peopleInformation = GetLine(path);
-                List<string> line=ChooseSortingType(peopleInformation);
+                List<string> line = ChooseSortingType(peopleInformation);
                 number = validator.CheckNumber(line);
                 surname = validator.CheckSurname(line);
                 separator = validator.CheckSeparator(line);
                 MessageLine(number, separator);
             }
         }
-
         public static string[] GetLine(string path)
         {
             string[] lines = File.ReadAllLines(path);
             return lines;
         }
-
         private static List<string> ChooseSortingType(string[] lines)
         {
-            Print print  = new Print();
+            Print print = new Print();
             PrintLineInformation printLine;
             Message mes = print.ChooseOrderingSort;
             mes();
@@ -59,7 +56,6 @@ namespace PhoneBook
             printLine(resultLine);
             return resultLine;
         }
-
         public static void MessageLine(List<bool> number, List<bool> separator)
         {
             Print print = new Print();
@@ -74,7 +70,7 @@ namespace PhoneBook
                 }
                 if (separator[i] == false)
                 {
-                    if (number[i]==false)
+                    if (number[i] == false)
                     {
                         message = print.ErrorSeperatorWithoutLine;
                         message();
