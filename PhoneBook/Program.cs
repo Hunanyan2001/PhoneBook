@@ -13,6 +13,7 @@ namespace PhoneBook
         public delegate void Message();
         public delegate void Error(int line);
         public delegate void PrintLineInformation(List<string> line);
+
         static void Main(string[] args)
         {
             List<bool> number;
@@ -44,7 +45,6 @@ namespace PhoneBook
 
         private static List<string> ChooseSortingType(string[] lines)
         {
-            
             Print print  = new Print();
             PrintLineInformation printLine;
             Message mes = print.ChooseOrderingSort;

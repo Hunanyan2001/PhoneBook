@@ -70,11 +70,11 @@ namespace PhoneBook
             List<string> count = new List<string>();
             if (OrderWays == "Ascending")
             {
-                list = Lines.OrderBy(x => x.Split(' ').Last().ToString().Substring(0,3)).ToList();
+                list = Lines.OrderBy(x => x.Split(' ').Last().ToString().Substring(0, 3)).ToList();
             }
             else
             {
-                list = Lines.OrderByDescending(x=>x.Split(' ').Last().ToString().Substring(0,3)).ToList();
+                list = Lines.OrderByDescending(x => x.Split(' ').Last().ToString().Substring(0, 3)).ToList();
             }
             return list;
         }

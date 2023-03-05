@@ -24,5 +24,11 @@ namespace PhoneBook
                 Console.WriteLine("\t" + line[i]);
             }
         }
+        public void FirstFile() => Console.WriteLine("You chose the first file");
+
+        public void SecondFile() => Console.WriteLine("You chose the second file");
+        public void ThirdFile() => Console.WriteLine("You chose the third file");
+
+        public void FileNotFound() => Console.WriteLine("this file is not found");
     }
 }

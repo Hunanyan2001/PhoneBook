@@ -10,25 +10,33 @@ namespace PhoneBook
 {
     internal class Validators
     {
+        public delegate void Message();
         public string filePath { get; set; }
+
         public string ChooseValidators(int selectValidator)
         {
+            Print print = new Print();
+            Message message;
             switch (selectValidator)
             {
                 case 1:
-                    Console.WriteLine("You chose the first file");
+                    message = print.FirstFile;
+                    message();
                     filePath = @"C:\Users\Lenovo\source\repos\PhoneBook\text\file.txt";
                     break;
                 case 2:
-                    Console.WriteLine("You chose the second file");
+                    message = print.SecondFile;
+                    message();
                     filePath = @"C:\Users\Lenovo\source\repos\PhoneBook\text\file1.txt";
                     break;
                 case 3:
-                    Console.WriteLine("You chose the third file");
-                    filePath = @"C:\Users\Lenovo\source\repos\PhoneBook\text\file2.txt"; 
+                    message = print.ThirdFile;
+                    message();
+                    filePath = @"C:\Users\Lenovo\source\repos\PhoneBook\text\file2.txt";
                     break;
                 default:
-                    Console.WriteLine("this file is not found");
+                    message = print.FileNotFound;
+                    message();
                     break;
             }
             return filePath;
@@ -39,7 +47,7 @@ namespace PhoneBook
             foreach (var line in lines)
             {
                 char[] number = line.Where(c => char.IsDigit(c)).ToArray();
-                if (number.Length!=9)
+                if (number.Length != 9)
                 {
                     result.Add(false);
                 }
@@ -53,10 +61,10 @@ namespace PhoneBook
         public List<bool> CheckSurname(List<string> lines)
         {
             List<bool> surname = new List<bool>();
-            foreach(var line in lines)
+            foreach (var line in lines)
             {
                 char[] fullName = line.Where(c => char.IsLetter(c)).ToArray();
-                if (fullName.Where(c=>char.IsUpper(c)).Count() ==2)
+                if (fullName.Where(c => char.IsUpper(c)).Count() == 2)
                 {
                     surname.Add(true);
                 }
@@ -72,7 +80,7 @@ namespace PhoneBook
             List<bool> result = new List<bool>();
             foreach (var line in lines)
             {
-                string[] separator = line.Split('-',':');
+                string[] separator = line.Split('-', ':');
                 if (separator.Count() == 2)
                 {
                     result.Add(true);
